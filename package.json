@@ -4,6 +4,9 @@
     "main": "index.js",
     "author": "Ido Zairi",
     "license": "MIT",
+    "engines": {
+        "node": "12.11.1"
+    },
     "scripts": {
         "serve": "live-server public/",
         "build:dev": "webpack",
