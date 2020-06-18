@@ -14,4 +14,18 @@ const altFilters = {
     endDate: moment(0).add(3, 'days')
 };
 
-export { filters, altFilters };
+const oneExpenseFilters = {
+    text: 'gum',
+    sortBy: 'amount',
+    startDate: moment(0),
+    endDate: moment(0).add(4, 'days')
+};
+
+const twoExpensesFilters = {
+    text: '',
+    sortBy: 'amount',
+    startDate: moment(0),
+    endDate: moment(0).add(4, 'days')
+};
+
+export { filters, altFilters, oneExpenseFilters, twoExpensesFilters };
