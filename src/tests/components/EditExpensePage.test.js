@@ -3,33 +3,33 @@ import { shallow } from 'enzyme';
 import { EditExpensePage } from '../../components/EditExpensePage';
 import expenses from '../fixtures/expenses';
 
-let editExpense, removeExpense, warpper, history;
+let editExpense, startRemoveExpense, warpper, history;
 beforeEach(() => {
     editExpense = jest.fn();
-    removeExpense = jest.fn();
+    startRemoveExpense = jest.fn();
     history = { push: jest.fn() };
     warpper = shallow(
         <EditExpensePage
             editExpense={editExpense}
-            removeExpense={removeExpense}
+            startRemoveExpense={startRemoveExpense}
             history={history}
             expense={expenses[2]}
         />
     );
 });
 
-test('should render EditExpensePage currectly', () => {
+test('should render EditExpensePage', () => {
     expect(warpper).toMatchSnapshot();
 });
 
-test('Should edit expense', () => {
+test('Should handle editExpense', () => {
     warpper.find('ExpenseForm').prop('onSubmit')(expenses[2]);
     expect(history.push).toHaveBeenCalledWith('/');
     expect(editExpense).toHaveBeenCalledWith(expenses[2].id, expenses[2]);
 });
 
-test('Should edit expense', () => {
+test('Should handle startRemoveExpense', () => {
     warpper.find('button').simulate('click');
     expect(history.push).toHaveBeenCalledWith('/');
-    expect(removeExpense).toHaveBeenCalledWith({ id: expenses[2].id });
+    expect(startRemoveExpense).toHaveBeenCalledWith({ id: expenses[2].id });
 });
