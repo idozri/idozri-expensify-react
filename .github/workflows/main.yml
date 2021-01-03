@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --ignore-engines
       - name: Build dependencies
-        run: yarn run build:prod
+        run: yarn run build:prod --ignore-engines
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
