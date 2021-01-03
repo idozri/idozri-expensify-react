@@ -8,7 +8,7 @@ export const Header = ({ startLogout }) => (
         <div className="content-container">
             <div className="header__content">
                 <Link className="header__title" to="/dashboard" exact={true}>
-                    <h1>Expensify I</h1>
+                    <h1>Expensify Id</h1>
                 </Link>
                 <button className="button button--link" onClick={startLogout}>
                     Logout
