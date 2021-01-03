@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -17,7 +18,8 @@ module.exports = env => {
     return {
         entry: ['@babel/polyfill', './src/app.js'],
         output: {
-            path: path.join(__dirname, 'public', 'dist'),
+            // path: path.join(__dirname, 'public', 'dist'),
+            path: path.join(__dirname, 'public/dist'),
             filename: 'bundle.js'
         },
         module: {
@@ -50,6 +52,10 @@ module.exports = env => {
         },
         plugins: [
             CSSExtract,
+            new HtmlWebpackPlugin({
+                hash: true,
+                filename: 'index.html'
+            }),
             new webpack.DefinePlugin({
                 'process.env.FIREBASE_API_KEY': JSON.stringify(
                     process.env.FIREBASE_API_KEY
