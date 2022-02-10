@@ -34,7 +34,7 @@
         "history": "4.7.2",
         "js-yaml": "^3.14.0",
         "moment": "2.18.1",
-        "node-sass": "^4.14.1",
+        "node-sass": "^7.0.0",
         "normalize.css": "^8.0.1",
         "numeral": "^2.0.6",
         "raf": "^3.4.1",
